@@ -13,7 +13,6 @@ import java.util.List;
 
 public interface IUserService {
   void save(User user);
-  boolean delete(int id);
   User findById(int id);
   void disableById(int id);
   List<User> findAll();

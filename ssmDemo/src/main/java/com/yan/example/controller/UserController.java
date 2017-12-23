@@ -10,7 +10,7 @@ package com.yan.example.controller;
 
 import com.yan.example.model.ResultObject;
 import com.yan.example.model.User;
-import com.yan.example.service.impl.UserService;
+import com.yan.example.service.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 
   @Autowired
-  private UserService userService;
+  private IUserService userService;
 
   /**
    * ÃÌº””√ªß

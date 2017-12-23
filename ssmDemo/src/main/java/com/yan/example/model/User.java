@@ -118,11 +118,11 @@ public class User {
     this.lastTime = lastTime;
   }
 
-  /* 通过禁用默认构造方法，实现添加用户时必录项
+  /* 通过禁用默认构造方法，实现添加用户时必录项*/
   public User(){
     super();
   }
-  */
+
 
   public User(int id, String userName, int gender, String mobile, String email, String birthday) {
     super();

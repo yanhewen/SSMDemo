@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yan.example.dao.UserMapper">
+
+  <insert id="save" parameterType="com.yan.example.model.User">
+    INSERT INTO t_user(username,PASSWORD,gender,mobile,email,birthday,LEVEL,ENABLE,create_time,last_time) VALUES(#{userName},#{password},#{gender},#{mobile},#{email},#{birthday},#{level},#{enable},#{createTime},#{lastTime})
+  </insert>
+
+  <delete id="disableById" parameterType="int">
+    update t_user set enable = 1 where id=#{id}
+  </delete>
+
+  <select id="findById" parameterType="int" resultType="com.yan.example.model.User">
+    select id id,username userName,PASSWORD PASSWORD,gender gender,mobile mobile,email email,birthday birthday,LEVEL LEVEL,ENABLE ENABLE,create_time createTime,last_time lastTime from t_user where id=#{id}
+  </select>
+
+  <select id="findAll" resultType="com.yan.example.model.User">
+    select id id,username userName,PASSWORD PASSWORD,gender gender,mobile mobile,email email,birthday birthday,LEVEL LEVEL,ENABLE ENABLE,create_time createTime,last_time lastTime from t_user
+  </select>
+
+</mapper>

@@ -33,13 +33,6 @@ public class UserService implements IUserService {
   }
 
   /**
-   * 根据id删除数据
-   */
-  public boolean delete(int id) {
-    return mapper.delete(id);
-  }
-
-  /**
    * 根据ID查询用户信息
    */
   public User findById(int id) {
