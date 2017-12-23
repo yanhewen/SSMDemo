@@ -1,8 +1,8 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <!-- 加载Spring容器配置 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -11,8 +11,7 @@
   <!-- 设置Spring容器加载所有的配置文件的路径 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <!-- <param-value>classpath:config/spring-*.xml</param-value> -->
-    <param-value>classpath:spring-common.xml,classpath:spring-mvc.xml</param-value>
+    <param-value>classpath*:spring*.xml,classpath*:mybatis-config.xml</param-value>
   </context-param>
 
   <!-- 解决工程编码过滤器 -->
@@ -28,7 +27,6 @@
       <param-value>true</param-value>
     </init-param>
   </filter>
-
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -38,20 +36,18 @@
   <servlet>
     <servlet-name>springMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!-- 配置初始配置化文件,前面contextConfigLocation看情况二选一 -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-common.xml,classpath:spring-mvc.xml</param-value>
+      <param-value>classpath:spring-mvc.xml</param-value>
     </init-param>
-    <!-- 启动加载一次 -->
     <load-on-startup>1</load-on-startup>
   </servlet>
   <!--为DispatcherServlet建立映射 -->
   <servlet-mapping>
     <servlet-name>springMVC</servlet-name>
-    <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
   <!--welcome pages-->
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

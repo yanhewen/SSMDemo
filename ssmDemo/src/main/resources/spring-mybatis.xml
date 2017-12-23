@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 自动扫描 -->
+  <context:component-scan base-package="com.yan"/>
+
+  <!-- 引入配置文件-->
+  <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="classpath:jdbc.properties"/>
+  </bean>
+
+  <!-- Mybatis和Spring的整合 -->
+  <!-- 1. 数据源 : 使用dbcp连接池 -->
+  <bean id="dataSource"
+    class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${driver}" />
+    <property name="url" value="${url}" />
+    <property name="username" value="${username}" />
+    <property name="password" value="${password}" />
+    <!-- 初始化连接数 -->
+    <property name="initialSize" value="${initialSize}" />
+    <!-- 连接池最大数 -->
+    <property name="maxActive" value="${maxActive}" />
+    <!-- 连接池最大空闲连接数 -->
+    <property name="maxIdle" value="${maxIdle}" />
+    <!-- 连接池最小空闲数 -->
+    <property name="minIdle" value="${minIdle}" />
+    <!-- 获取连接时最大等待时间 -->
+    <property name="maxWait" value="${maxWait}" />
+  </bean>
+
+  <!--
+      2. mybatis的SqlSession的工厂: SqlSessionFactoryBean,不需要mybatis的配置映射文件
+  -->
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"></property>
+    <property name="mapperLocations" value="classpath:com/yan/example/mapping/UserMapper.xml" />
+  </bean>
+
+  <!--
+      3. mybatis自动扫描加载Sql映射文件/接口 : MapperScannerConfigurer
+  -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="com.yan.example.dao"></property>
+    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+  </bean>
+
+  <!--
+      4. 事务管理 : DataSourceTransactionManager
+  -->
+  <bean id="txManager"
+    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource"></property>
+  </bean>
+
+  <!-- 5. 使用声明式事务 -->
+  <tx:annotation-driven transaction-manager="txManager" />
+</beans>
