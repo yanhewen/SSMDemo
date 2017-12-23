@@ -18,7 +18,7 @@ buildNumber.properties
 *.class
 
 # Log Files
-*.log
+# *.log
 
 # About IntelliJ
 *.iml
@@ -68,4 +68,3 @@ bin/
 gen/
 classes/
 lib/
-logs/

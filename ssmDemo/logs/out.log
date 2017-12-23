@@ -1,0 +1,19 @@
+[INFO] [2017-12-23 18:29:49][org.springframework.test.context.support.DefaultTestContextBootstrapper]Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO] [2017-12-23 18:29:49][org.springframework.test.context.support.DefaultTestContextBootstrapper]Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@29774679, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3ffc5af1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5e5792a0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@26653222, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3532ec19, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@68c4039c]
+[INFO] [2017-12-23 18:29:49][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-12-23 18:29:50][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@21213b92: startup date [Sat Dec 23 18:29:50 CST 2017]; root of context hierarchy
+[INFO] [2017-12-23 18:29:50][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-12-23 18:29:50][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]********************测试开始********************
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]初始人员：
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]User [id=1, userName=yanhewen, gender=男, mobile=18624404528, email=yan-hewen@163.com, birthday=19901031]
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]User [id=2, userName=kangyanjun, gender=女, mobile=17600519986, email=732076824@qq.com, birthday=19880925]
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]User [id=3, userName=lizhiming, gender=男, mobile=13840332987, email=lizm@neusoft.com, birthday=19910812]
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]User [id=4, userName=YangYouGu, gender=男, mobile=18898654432, email=yangyg@neusoft.com, birthday=19810328]
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]开始新增人员：
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]新增成功！
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]查询ID为1的User:
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]User [id=1, userName=yanhewen, gender=男, mobile=18624404528, email=yan-hewen@163.com, birthday=19901031]
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]禁用ID为3的User:
+[INFO] [2017-12-23 18:29:50][com.yan.example.Test]禁用成功！
+[INFO] [2017-12-23 18:29:50][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@21213b92: startup date [Sat Dec 23 18:29:50 CST 2017]; root of context hierarchy
