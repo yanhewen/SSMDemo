@@ -25,6 +25,7 @@
       </list>
     </property>
   </bean>
+  <mvc:resources mapping="/img/**" location="/WEB-INF/img/"/>
 
   <bean id="viewResolver"
     class="org.springframework.web.servlet.view.InternalResourceViewResolver">
